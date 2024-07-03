@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400);
+
+body {
+    font: normal normal 13px/16px "Open Sans", sans-serif;
+    background: #dfdfdf;
+}
+
+.container {
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 40px;
+    background: white;
+    border-radius: 5px;
+}
+
+form {
+    display: inline-block;
+}
+
+input {
+    padding: 4px 15px 4px 5px;
+}
+
+#button {
+    display: inline-block;
+    background-color: #fc999b;
+    color: #ffffff;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 2px;
+    padding: 5px 15px;
+}
+
+ol {
+    padding-left: 20px;
+    counter-reset: item;
+}
+
+ol li {
+    padding: 5px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+ol li::before {
+    content: counter(item) ". ";
+    counter-increment: item;
+    margin-right: 10px;
+}
+
+ol li:nth-child(even) {
+    background: #f9e983;
+}
+
+.strike {
+    text-decoration: line-through;
+    color: #1dca17;
+}
+
+.strike2 {
+    text-decoration: line-through;
+    color: #cccccc;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+.delete {
+    display: none;
+}
+
+.completeCheckbox {
+    margin: 0 30px;
+}
+
+.deleteButton {
+    background: none;
+    border: none;
+    color: #000000;
+    font-weight: 800;
+    margin-left: auto;
+}
