@@ -20,10 +20,10 @@ This triggers the build of a todo list where each item consists of the following
 - the ***wording*** of the task / list item itself
 - a ***closing button*** to delete the record from the list
 
-As long as the browser window is not refreshed, the list items stay live.
 
 ### Ordering
 
+Whatever item you put in next, it will be added to the top of the list.
 The list items can be dragged and dropped to change their order (of importance).
 
 ### Checkbox

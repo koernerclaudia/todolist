@@ -8,12 +8,12 @@ $(document).ready(function() {
         if (inputValue === '') {
             alert("You must write something!");
         } else {
-            $('#list').append(li);
+            $('#list').prepend(li);
             $('#input').val(''); // Clear the input field
         }
 
         addEventHandlers(li);
-        saveList();
+       
     }
 
     // Function to add event handlers to list items
@@ -28,7 +28,7 @@ $(document).ready(function() {
                     return this.nodeType === 3 && this.nodeValue.includes("(irrelevant)");
                 }).remove();
             }
-            saveList();
+        
         });
 
         // Adding a checkbox for marking items
@@ -47,7 +47,7 @@ $(document).ready(function() {
                     return this.nodeType === 3 && this.nodeValue.includes("(completed)");
                 }).remove();
             }
-            saveList();
+            
         });
 
         // Adding CLASS DELETE (DISPLAY: NONE) from the css:
@@ -56,22 +56,12 @@ $(document).ready(function() {
 
         crossOutButton.on("click", function() {
             li.addClass("delete");
-            saveList();
+           
         });
     }
-
-    // Function to save the list to local storage
-    function saveList() {
-        let listItems = [];
-        $('#list li').each(function() {
-            let text = $(this).clone().children().remove().end().text().trim();
-            let isStriked = $(this).hasClass("strike2");
-            let isChecked = $(this).find(".crossOutCheckbox").is(':checked');
-            listItems.push({ text: text, isStriked: isStriked, isChecked: isChecked });
-        });
-        localStorage.setItem('todoList', JSON.stringify(listItems));
-    }
-
+    // Reordering the items
+    $('#list').sortable();
+     
     // Bind the click event to the Add button
     $('#button').on('click', newItem);
 
