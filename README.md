@@ -29,10 +29,10 @@ The list items can be dragged and dropped to change their order (of importance).
 ### Checkbox
 
 When clicked, is marked in green and the task / list item gets a green stroke.
-A note as 'completed' shows up at the end of the line.
 
 ### Double-Click 
 
 When a task is double clicked - to mark it as irrelevant - the task gets a grey stroke and
 a note as 'irrelevant' shows up at the end of the line.
+When double-clicked again, the task becomes valid again.
 
