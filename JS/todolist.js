@@ -39,10 +39,15 @@ $(document).ready(function() {
             if (this.checked) {
                 $(this).css('accent-color', '#1dca17');
                 li.addClass("strike");
-                li.append(" (completed)");
+                if (!li.text().includes("(completed)")) {
+                    li.append(" (completed)");
+                }
             } else {
                 $(this).css('accent-color', '');
                 li.removeClass("strike");
+                li.contents().filter(function() {
+                    return this.nodeType === 3 && this.nodeValue.includes("(completed)");
+                }).remove();
             }
             saveList();
         });
