@@ -2,10 +2,10 @@ $(document).ready(function() {
     // Function to add a new item
     function newItem() {
         let li = $('<li></li>');
-        let taskItem = $('#input').val();
-        li.append(taskItem);
+        let inputValue = $('#input').val();
+        li.append(inputValue);
 
-        if (taskItem === '') {
+        if (inputValue === '') {
             alert("You must write something!");
         } else {
             $('#list').append(li);
@@ -32,16 +32,14 @@ $(document).ready(function() {
         });
 
         // Adding a checkbox for marking items
-        let completeCheckbox = $('<input type="checkbox" class="completeCheckbox">');
-        li.prepend(completeCheckbox); // Use prepend to place the checkbox at the beginning
+        let crossOutCheckbox = $('<input type="checkbox" class="crossOutCheckbox">');
+        li.prepend(crossOutCheckbox); // Use prepend to place the checkbox at the beginning
 
-        completeCheckbox.on("change", function() {
+        crossOutCheckbox.on("change", function() {
             if (this.checked) {
-                $(this).css('accent-color', '#1dca17');
+                $(this).css('accent-color', 'green');
                 li.addClass("strike");
-                if (!li.text().includes("(completed)")) {
-                    li.append(" (completed)");
-                }
+                li.append(" (completed)");
             } else {
                 $(this).css('accent-color', '');
                 li.removeClass("strike");
@@ -74,29 +72,6 @@ $(document).ready(function() {
         localStorage.setItem('todoList', JSON.stringify(listItems));
     }
 
-    // Function to load the list from local storage
-    function loadList() {
-        let listItems = JSON.parse(localStorage.getItem('todoList'));
-        if (listItems) {
-            listItems.forEach(function(item) {
-                let li = $('<li></li>').text(item.text);
-                if (item.isStriked) {
-                    li.addClass("strike2");
-                    li.append(" (irrelevant)");
-                }
-                $('#list').append(li);
-                addEventHandlers(li);
-                if (item.isChecked) {
-                    li.find('.crossOutCheckbox').prop('checked', true).css('accent-color', 'green');
-                    li.addClass("strike");
-                }
-            });
-        }
-    }
-
-      // 5. Reordering the items:
-      $('#list').sortable();
-
     // Bind the click event to the Add button
     $('#button').on('click', newItem);
 
@@ -107,7 +82,4 @@ $(document).ready(function() {
             event.preventDefault(); // Prevent the form from submitting
         }
     });
-
-    // Load the list from local storage on page load
-    loadList();
 });

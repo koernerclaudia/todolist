@@ -60,6 +60,14 @@ ol li:nth-child(even) {
     color: #1dca17;
 }
 
+.completed {
+    color: #1dca17;
+}
+
+.irrelevant {
+    color: #cccccc;
+}
+
 .strike2 {
     text-decoration: line-through;
     color: #cccccc;
