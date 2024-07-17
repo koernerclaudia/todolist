@@ -1,6 +1,6 @@
 # todolist with jQuery
 
-A simple to do list built in jQuery.
+A simple to do list built in jQuery. I have set up this project during my training with CareerFoundry.
 
 ## Built
 This app consists of 
